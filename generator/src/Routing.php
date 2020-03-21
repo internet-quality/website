@@ -4,6 +4,7 @@ namespace Website;
 
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
+use Website\Controllers\AbstractController;
 use Website\Controllers\HomeController;
 use function FastRoute\simpleDispatcher;
 
@@ -12,7 +13,7 @@ final class Routing
 
     public static function manageRouting(): void
     {
-
+        $request = AbstractController::getStaticRequest();
         $dispatcher = simpleDispatcher(function (RouteCollector $routes) {
             $routes->addGroup('', function (RouteCollector $routes) {
                 $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
@@ -21,10 +22,10 @@ final class Routing
         });
 
         /** @var string $route */
-        $route = $_GET['route'] ?? $_POST['route'] ?? '/';
+        $route = $request->query->get('route') ?? $request->request->get('route') ?? '/';
 
         $routeInfo = $dispatcher->dispatch(
-            $_SERVER['REQUEST_METHOD'],
+            $request->getMethod(),
             rawurldecode($route)
         );
 
