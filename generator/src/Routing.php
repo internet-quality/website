@@ -16,17 +16,11 @@ final class Routing
     public static function manageRouting(): void
     {
         $request = AbstractController::getStaticRequest();
-        $dispatcher = simpleDispatcher(function (RouteCollector $routes) {
-            $routes->addGroup('', function (RouteCollector $routes) {
-                $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
-            });
-            $routes->get('/websites', [WebsitesController::class, 'index']);
-        });
 
         /** @var string $route */
         $route = $request->query->get('route') ?? $request->request->get('route') ?? '/';
 
-        $routeInfo = $dispatcher->dispatch(
+        $routeInfo = self::getDispatcher()->dispatch(
             $request->getMethod(),
             rawurldecode($route)
         );
@@ -51,5 +45,15 @@ final class Routing
                 $controller->sendResponse();
                 break;
         }
+    }
+
+    public static function getDispatcher(): Dispatcher
+    {
+        return simpleDispatcher(function (RouteCollector $routes) {
+            $routes->addGroup('', function (RouteCollector $routes) {
+                $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
+            });
+            $routes->get('/websites', [WebsitesController::class, 'index']);
+        });
     }
 }
