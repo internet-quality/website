@@ -2,13 +2,14 @@
 
 namespace Website\Controllers;
 
-use Symfony\Component\HttpFoundation\Response;
-
 class WebsitesController extends AbstractController {
 
     public function index(): void
     {
-        $this->setContent($this->twig->render('pages/websites.twig', []));
+        $websites = json_decode(file_get_contents(__DIR__ . '/../../../data-store/websites.json'))->websites;
+        $this->setContent($this->twig->render('pages/websites.twig', [
+            'websites' => $websites,
+        ]));
     }
 
 }
