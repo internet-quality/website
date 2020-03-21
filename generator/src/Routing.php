@@ -53,6 +53,7 @@ final class Routing
             $routes->addGroup('', function (RouteCollector $routes) {
                 $routes->get('[/]', [HomeController::class, 'index']);
             });
+            $routes->get('/index', [HomeController::class, 'index']);
             $routes->get('/websites', [WebsitesController::class, 'index']);
         });
     }
