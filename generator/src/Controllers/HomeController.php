@@ -2,18 +2,22 @@
 
 namespace Website\Controllers;
 
+use Symfony\Component\HttpFoundation\Response;
+
 class HomeController extends AbstractController {
 
     public function index(): void
     {
-        echo $this->twig->render('pages/index.twig', []);
+        $this->setContent($this->twig->render('pages/index.twig', [
+        ]));
     }
 
     public function notFound(string $routeName): void
     {
-        echo $this->twig->render('pages/not-found.twig', [
+        $this->getResponse()->setStatusCode(Response::HTTP_NOT_FOUND);
+        $this->setContent($this->twig->render('pages/not-found.twig', [
             'routeName' => $routeName,
-        ]);
+        ]));
     }
 
     /**
@@ -25,10 +29,11 @@ class HomeController extends AbstractController {
      */
     public function notAllowed(string $routeName, array $allowedMethods): void
     {
-        echo $this->twig->render('pages/not-allowed.twig', [
+        $this->getResponse()->setStatusCode(Response::HTTP_METHOD_NOT_ALLOWED);
+        $this->setContent($this->twig->render('pages/not-allowed.twig', [
             'routeName' => $routeName,
             'allowedMethods' => $allowedMethods,
-        ]);
+        ]));
     }
 
 }

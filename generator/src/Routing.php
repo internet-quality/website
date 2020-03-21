@@ -31,16 +31,22 @@ final class Routing
 
         switch ($routeInfo[0]) {
             case Dispatcher::NOT_FOUND:
-                (new HomeController())->notFound($route);
+                $controller = new HomeController();
+                $controller->notFound($route);
+                $controller->sendResponse();
                 break;
             case Dispatcher::METHOD_NOT_ALLOWED:
                 $allowedMethods = $routeInfo[1];
-                (new HomeController())->notAllowed($route, $allowedMethods);
+                $controller = new HomeController();
+                $controller->notAllowed($route, $allowedMethods);
+                $controller->sendResponse();
                 break;
             case Dispatcher::FOUND:
                 [$controllerName, $action] = $routeInfo[1];
+                /** @var AbstractController $controller */
                 $controller = new $controllerName();
                 $controller->$action($routeInfo[2]);
+                $controller->sendResponse();
                 break;
         }
     }

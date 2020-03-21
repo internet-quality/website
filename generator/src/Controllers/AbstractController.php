@@ -6,6 +6,7 @@ use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use Website\RouteExtension;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 abstract class AbstractController {
 
@@ -21,7 +22,14 @@ abstract class AbstractController {
      *
      * @var Request
      */
-    public static $request = null;
+    protected static $request = null;
+
+    /**
+     * The Response object
+     *
+     * @var Response
+     */
+    protected static $response = null;
 
     public function __construct()
     {
@@ -30,19 +38,39 @@ abstract class AbstractController {
             'cache' => false,
         ]);
         $this->twig->addExtension(new RouteExtension());
+        $this->response = new Response(
+            'Content',
+            Response::HTTP_OK,
+            ['content-type' => 'text/html']
+        );
     }
 
     public static function getStaticRequest(): Request
     {
-        if (static::$request === null) {
-            static::$request = Request::createFromGlobals();
+        if (self::$request === null) {
+            self::$request = Request::createFromGlobals();
         }
-        return static::$request;
+        return self::$request;
     }
 
     public function getRequest(): Request
     {
-        return static::getStaticRequest();
+        return self::getStaticRequest();
     }
 
+    public function getResponse(): Response
+    {
+        return $this->response;
+    }
+
+    public function setContent(?string $content): void
+    {
+        $this->response->setContent($content);
+    }
+
+    public function sendResponse(): void
+    {
+        $this->response->prepare($this->getRequest());
+        $this->response->send();
+    }
 }
