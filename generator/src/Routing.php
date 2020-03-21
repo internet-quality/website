@@ -51,7 +51,7 @@ final class Routing
     {
         return simpleDispatcher(function (RouteCollector $routes) {
             $routes->addGroup('', function (RouteCollector $routes) {
-                $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
+                $routes->get('[/]', [HomeController::class, 'index']);
             });
             $routes->get('/websites', [WebsitesController::class, 'index']);
         });
