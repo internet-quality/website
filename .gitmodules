@@ -1,0 +1,3 @@
+[submodule "data-store"]
+	path = data-store
+	url = git@github.com:internet-quality/data-store.git
