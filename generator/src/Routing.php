@@ -6,6 +6,8 @@ use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use Website\Controllers\AbstractController;
 use Website\Controllers\HomeController;
+use Website\Controllers\WebsitesController;
+
 use function FastRoute\simpleDispatcher;
 
 final class Routing
@@ -18,7 +20,7 @@ final class Routing
             $routes->addGroup('', function (RouteCollector $routes) {
                 $routes->addRoute(['GET', 'POST'], '[/]', [HomeController::class, 'index']);
             });
-            $routes->get('/websites', [HomeController::class, 'index']);
+            $routes->get('/websites', [WebsitesController::class, 'index']);
         });
 
         /** @var string $route */
