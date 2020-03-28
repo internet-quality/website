@@ -2,18 +2,16 @@
 
 namespace Website\Controllers;
 
-use Twig\Loader\FilesystemLoader;
-use Twig\Environment;
-use Website\RouteExtension;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Website\Twig;
 
 abstract class AbstractController {
 
     /**
      * Twig Environment
      *
-     * @var Environment
+     * @var \Twig\Environment
      */
     protected $twig;
 
@@ -33,11 +31,7 @@ abstract class AbstractController {
 
     public function __construct()
     {
-        $loader = new FilesystemLoader(__DIR__ . '/../../templates');
-        $this->twig = new Environment($loader, [
-            'cache' => false,
-        ]);
-        $this->twig->addExtension(new RouteExtension());
+        $this->twig = Twig::getTwig();
         $this->response = new Response(
             'Content',
             Response::HTTP_OK,
