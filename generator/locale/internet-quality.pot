@@ -1,0 +1,18 @@
+# Website translations.
+# Copyright (C) 2020 Internet Quality
+# This file is distributed under the license http://unlicense.org/UNLICENSE
+# Internet Quality <translators@internet-quality.org>
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0.0-alpha1\n"
+"Report-Msgid-Bugs-To: translators@internet-quality.org\n"
+"POT-Creation-Date: 2020-03-29 12:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Internet Quality <translators@internet-quality.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
