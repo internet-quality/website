@@ -2,6 +2,6 @@
 {% block title %}404 | {{ parent() }}{% endblock %}
 {% block body %}
     <div class="col-md-12 mt-4">
-        <h1>The page you requested could not be found</h1>
+        <h1>{% trans %}The page you requested could not be found{% notes %}Error 404 page{% endtrans %}</h1>
     </div>
 {% endblock %}

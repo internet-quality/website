@@ -2,6 +2,6 @@
 {% block title %}405 | {{ parent() }}{% endblock %}
 {% block body %}
     <div class="col-md-12 mt-4">
-        <h1>The method you requested is not allowed</h1>
+        <h1>{% trans %}The method you requested is not allowed{% notes %}Error 405 page{% endtrans %}</h1>
     </div>
 {% endblock %}
