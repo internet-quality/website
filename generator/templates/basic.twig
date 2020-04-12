@@ -4,9 +4,9 @@
     <title>{% block title %}Internet quality{% endblock %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="alternate" hreflang="x-default" href="{{ route('/') }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ raw_route('/') }}" />
     {% for languageCode in language_codes() %}
-    {#  #}<link rel="alternate" hreflang="{{ languageCode }}" href="{{ route('/' ~ languageCode ~ '/') }}" />
+    {#  #}<link rel="alternate" hreflang="{{ languageCode }}" href="{{ raw_route('/' ~ languageCode ~ '/index') }}" />
     {% endfor %}
     {% block styles %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous" />

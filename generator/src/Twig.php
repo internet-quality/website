@@ -58,8 +58,8 @@ final class Twig {
                 'cache' => false,
             ]);
         }
-        static::$twig->addExtension(new RouteExtension());
-        static::$twig->addExtension(new LanguageExtension());
+        static::$twig->addExtension(new RouteExtension($languageCode));
+        static::$twig->addExtension(new LanguageExtension($languageCode));
         static::$twig->addExtension(new ExtensionI18n());
         return static::$twig;
     }
