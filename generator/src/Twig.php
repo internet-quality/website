@@ -6,6 +6,9 @@ use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use Twig\Cache\FilesystemCache;
 use Website\RouteExtension;
+use Wdes\phpI18nL10n\plugins\MoReader;
+use Wdes\phpI18nL10n\Launcher;
+use Wdes\phpI18nL10n\Twig\Extension\I18n as ExtensionI18n;
 
 final class Twig {
 
@@ -34,6 +37,14 @@ final class Twig {
             return static::$twig;
         }
         $rootDir = realpath(__DIR__ . '/../') . '/';
+
+        $dataDir  = $rootDir . 'locale/';
+        $moReader = new MoReader(
+            ['localeDir' => $dataDir]
+        );
+        $moReader->readFile($dataDir . 'en/LC_MESSAGES/internet-quality.mo');
+        Launcher::$plugin = $moReader;
+
         $loader = new FilesystemLoader($rootDir . 'templates');
         if ($debugMode) {
             static::$cacheFS = new FilesystemCache($rootDir . 'tmp');
@@ -47,6 +58,7 @@ final class Twig {
             ]);
         }
         static::$twig->addExtension(new RouteExtension());
+        static::$twig->addExtension(new ExtensionI18n());
         return static::$twig;
     }
 
