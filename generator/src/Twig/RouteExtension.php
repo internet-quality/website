@@ -9,6 +9,9 @@ use Website\Languages;
 
 class RouteExtension extends AbstractExtension
 {
+    /**
+     * @var string
+     */
     private $languageCode;
 
     public function __construct(string $languageCode)

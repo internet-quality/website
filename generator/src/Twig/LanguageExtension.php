@@ -8,6 +8,16 @@ use Website\Languages;
 
 class LanguageExtension extends AbstractExtension
 {
+    /**
+     * @var string
+     */
+    private $languageCode;
+
+    public function __construct(string $languageCode)
+    {
+        $this->languageCode = $languageCode;
+    }
+
     public function getFunctions()
     {
         return [
@@ -16,6 +26,9 @@ class LanguageExtension extends AbstractExtension
             }),
             new TwigFunction('language_codes', function () {
                 return Languages::getLanguageCodes();
+            }),
+            new TwigFunction('current_language', function () {
+                return $this->languageCode;
             }),
         ];
     }
