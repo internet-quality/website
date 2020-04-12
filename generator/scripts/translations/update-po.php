@@ -69,7 +69,7 @@ function poupdate(string $poFile, string $licenseBlock): void
 
 echo 'Po-dir: '.$projectPoDir . PHP_EOL;
 foreach (glob($projectPoDir . '*.po') as $file) {
-    exec('msgmerge --quiet --previous -U $file '.$projectPoDir . 'internet-quality.pot');
+    exec('msgmerge --quiet --previous -U ' . $file . ' ' . $poTemplate);
     echo 'File: ' . $file . PHP_EOL;
     poupdate($file, $licenseBlock);
 }
