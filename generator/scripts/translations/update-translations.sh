@@ -12,4 +12,4 @@ $ROOT_DIR/scripts/translations/make-pot.sh
 $ROOT_DIR/scripts/translations/update-po.php
 $ROOT_DIR/scripts/translations/update-mo.sh
 
-git commit -am "[Translations] updates" -S -m "[ci skip]" --author "Internet Quality <bot@internet-quality.org>"
+git commit -am "chore: [Translations] updates" -S -m "[ci skip]" -m "#translations" -m "[changelog skip]" --author "Internet Quality <bot@internet-quality.org>"
