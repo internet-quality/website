@@ -41,7 +41,8 @@ final class Routing
                 [$controllerName, $action] = $routeInfo[1];
                 /** @var AbstractController $controller */
                 $controller = new $controllerName();
-                $controller->$action($routeInfo[2]);
+                $controller->setParameters($routeInfo[2]);
+                $controller->$action();
                 $controller->sendResponse();
                 break;
         }
@@ -53,8 +54,11 @@ final class Routing
             $routes->addGroup('', function (RouteCollector $routes) {
                 $routes->get('[/]', [HomeController::class, 'index']);
             });
-            $routes->get('/index', [HomeController::class, 'index']);
-            $routes->get('/websites', [WebsitesController::class, 'index']);
+            $routes->addGroup('/{lang}', function (RouteCollector $routes) {
+                $routes->get('[/]', [HomeController::class, 'index']);
+                $routes->get('/index', [HomeController::class, 'index']);
+                $routes->get('/websites', [WebsitesController::class, 'index']);
+            });
         });
     }
 }

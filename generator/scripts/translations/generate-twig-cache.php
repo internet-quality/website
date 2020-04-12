@@ -14,7 +14,7 @@ $tmpDir = $projectRootDir . 'tmp/';
 
 $shortTempDir = str_replace($projectRootDir, '', $projectTemplatesDir);
 
-$__twig                 = Website\Twig::makeTwig(true);
+$__twig                 = Website\Twig::makeTwig(Website\Languages::getDefaultLanguageCode(), true);
 $mappings               = new stdClass();
 $mappings->mappings     = [];
 $mappings->replacements = [];

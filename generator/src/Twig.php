@@ -5,10 +5,11 @@ namespace Website;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 use Twig\Cache\FilesystemCache;
-use Website\RouteExtension;
+use Website\Twig\RouteExtension;
 use Wdes\phpI18nL10n\plugins\MoReader;
 use Wdes\phpI18nL10n\Launcher;
 use Wdes\phpI18nL10n\Twig\Extension\I18n as ExtensionI18n;
+use Website\Twig\LanguageExtension;
 
 final class Twig {
 
@@ -26,12 +27,12 @@ final class Twig {
      */
     public static $cacheFS;
 
-    public static function getTwig(): Environment
+    public static function getTwig(string $languageCode): Environment
     {
-        return static::makeTwig(false);
+        return static::makeTwig($languageCode, false);
     }
 
-    public static function makeTwig(bool $debugMode): Environment
+    public static function makeTwig(string $languageCode, bool $debugMode): Environment
     {
         if (static::$twig !== null) {
             return static::$twig;
@@ -42,7 +43,7 @@ final class Twig {
         $moReader = new MoReader(
             ['localeDir' => $dataDir]
         );
-        $moReader->readFile($dataDir . 'en/LC_MESSAGES/internet-quality.mo');
+        $moReader->readFile($dataDir . $languageCode . '/LC_MESSAGES/internet-quality.mo');
         Launcher::$plugin = $moReader;
 
         $loader = new FilesystemLoader($rootDir . 'templates');
@@ -58,6 +59,7 @@ final class Twig {
             ]);
         }
         static::$twig->addExtension(new RouteExtension());
+        static::$twig->addExtension(new LanguageExtension());
         static::$twig->addExtension(new ExtensionI18n());
         return static::$twig;
     }
