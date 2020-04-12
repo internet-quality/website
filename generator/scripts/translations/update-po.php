@@ -54,6 +54,9 @@ function poupdate(string $poFile, string $licenseBlock): void
         function ($matchs) {
             global $mappings;
             $line    = intval($matchs[2]);
+            if (! isset($mappings->mappings->{$matchs[1]})) {
+                throw new Exception('A mapping had an error (' . $matchs[1] . ').');
+            }
             $replace = $mappings->mappings->{$matchs[1]};
             foreach ($replace->debugInfo as $cacheLineNumber => $iii) {
                 if ($line >= $cacheLineNumber) {
@@ -68,9 +71,14 @@ function poupdate(string $poFile, string $licenseBlock): void
 }
 
 echo 'Po-dir: '.$projectPoDir . PHP_EOL;
-foreach (glob($projectPoDir . '*.po') as $file) {
-    exec('msgmerge --quiet --previous -U ' . $file . ' ' . $poTemplate);
-    echo 'File: ' . $file . PHP_EOL;
-    poupdate($file, $licenseBlock);
+try {
+    foreach (glob($projectPoDir . '*.po') as $file) {
+        exec('msgmerge --quiet --previous -U ' . $file . ' ' . $poTemplate);
+        echo 'File: ' . $file . PHP_EOL;
+        poupdate($file, $licenseBlock);
+    }
+    poupdate($poTemplate, $licenseBlock);
+} catch (Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+    exit(1);
 }
-poupdate($poTemplate, $licenseBlock);

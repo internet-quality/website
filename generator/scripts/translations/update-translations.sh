@@ -7,6 +7,9 @@
 ROOT_DIR=$(realpath "$(dirname $0)/../../")
 echo "Using root: ${ROOT_DIR}"
 
+set -e
+
+rm -rf $ROOT_DIR/tmp/
 $ROOT_DIR/scripts/translations/generate-twig-cache.php
 $ROOT_DIR/scripts/translations/make-pot.sh
 $ROOT_DIR/scripts/translations/update-po.php
