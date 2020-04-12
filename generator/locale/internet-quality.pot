@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@internet-quality.org\n"
-"POT-Creation-Date: 2020-04-12 15:47+0200\n"
+"POT-Creation-Date: 2020-04-12 22:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Internet Quality <translators@internet-quality.org>\n"
@@ -17,13 +17,21 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: templates/common/foot.twig:3
+msgid "The web does not just connect machines, it connects people. - Tim Berners-Lee"
+msgstr ""
+
+#: templates/common/foot.twig:5
+msgid "You affect the world by what you browse. - Tim Berners-Lee"
+msgstr ""
+
 #. l10n: Title of the homepage
 #: templates/pages/index.twig:2
 msgid "Homepage"
 msgstr ""
 
 #: templates/pages/index.twig:6
-msgid "Make Internet great again !"
+msgid "Data is a precious thing and will last longer than the systems themselves. - Tim Berners-Lee"
 msgstr ""
 
 #. l10n: Error 405 page
