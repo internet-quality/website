@@ -5,5 +5,13 @@
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">Internet Quality</h1>
       <p class="lead">{% trans %}Data is a precious thing and will last longer than the systems themselves. - Tim Berners-Lee{% endtrans %}</p>
+	  {{ schema({
+		"@type": "Quotation",
+		"creator": {
+			"@type": "Person",
+			"name": "Tim Berners-Lee"
+		},
+		"text": "Data is a precious thing and will last longer than the systems themselves."
+	  }) }}
     </div>
 {% endblock %}

@@ -10,6 +10,7 @@ use Wdes\phpI18nL10n\plugins\MoReader;
 use Wdes\phpI18nL10n\Launcher;
 use Wdes\phpI18nL10n\Twig\Extension\I18n as ExtensionI18n;
 use Website\Twig\LanguageExtension;
+use Website\Twig\SchemaOrg;
 
 final class Twig {
 
@@ -61,6 +62,7 @@ final class Twig {
         static::$twig->addExtension(new RouteExtension($languageCode));
         static::$twig->addExtension(new LanguageExtension($languageCode));
         static::$twig->addExtension(new ExtensionI18n());
+        static::$twig->addExtension(new SchemaOrg());
         return static::$twig;
     }
 

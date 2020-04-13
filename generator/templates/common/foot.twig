@@ -5,3 +5,20 @@
         {% trans %}You affect the world by what you browse. - Tim Berners-Lee{% endtrans %}
 	</div>
 </footer>
+{{ schema({
+		"@type": "Organization",
+		"name": "Internet Quality",
+		"email": "contact(at)internet-quality.org",
+}) }}
+{{ schema({
+		"@type": "WebSite",
+		"name": "Internet Quality website",
+		"sameAs": [
+			"https://keybase.io/internetquality",
+			"https://twitter.com/InternetQaOrg",
+			"https://github.com/internet-quality-bot",
+			"https://github.com/internet-quality",
+		],
+		"copyrightYear": 2020,
+		"url": "https://internet-quality.org/",
+}) }}
