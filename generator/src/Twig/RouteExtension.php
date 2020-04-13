@@ -30,7 +30,11 @@ class RouteExtension extends AbstractExtension
 
     public function buildAssetRoute(string $path): string
     {
-        return '/' . $path;
+        $request = AbstractController::getStaticRequest();
+        if ($request->headers->has('x-use-html-short-paths')) {
+            return '/' . $path;
+        }
+        return $path;
     }
 
     public function buildRawRoute(string $path): string
