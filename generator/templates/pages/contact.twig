@@ -1,0 +1,25 @@
+{% set definedCurrentRoute = '/contact' %}
+{% extends 'basic.twig' %}
+{% block title %}{% trans %}Contact{% notes %}Title of the Contact page{% endtrans %} | {{ parent() }}{% endblock %}
+{% block body %}
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <h1 class="mt-5">{% trans %}Contact us{% notes %}Header of the Contact page{% endtrans %}</h1>
+    <p class="lead">
+		<ul>
+			<li><a href="https://keybase.io/internetquality">{% trans %}On keybase{% endtrans %}</a></li>
+			<li><a href="https://twitter.com/InternetQaOrg">{% trans %}On twitter{% endtrans %}</a></li>
+			<li><a href="https://github.com/internet-quality-bot">{% trans %}On GitHub{% endtrans %}</a></li>
+			<li><a href="https://github.com/internet-quality">{% trans %}On GitHub (org){% endtrans %}</a></li>
+			<li><a href="mailto:contact@internet-quality.org">{% trans %}By email: contact@internet-quality.org{% endtrans %}</a></li>
+			<li>{% trans %}GPG KEY:{% endtrans %}<br>
+			<code>
+			pub   rsa3072 2020-03-20 [SC] [expire : 2022-03-20]<br>
+				<a href="{{ asset('assets/public-gpg-key.asc') }}" >09B20DD2A507C5ADC522892BD3C640033433A477</a><br>
+			uid          [  ultime ] Internet Quality &lt;contact@internet-quality.org&gt;<br>
+			</code></li>
+		</ul>
+	</p>
+  </div>
+</main>
+{% endblock %}

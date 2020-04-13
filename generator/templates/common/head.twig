@@ -26,12 +26,16 @@
 		{% set routeUrl = '/' %}
 		<li class="nav-item {{ block('isActive') }}">
 			<a class="nav-link" href="{{ route(routeUrl) }}">{% trans %}Homepage{% notes %}Homepage navbar item{% endtrans %}{{ block('currentActiveTab') }}
-				</a>
-			</li>
+			</a>
+		</li>
 		{% set routeUrl = '/websites' %}
-			<li class="nav-item">
+		<li class="nav-item">
 			<a class="nav-link {{ block('isActive') }}" href="{{ route(routeUrl) }}">{% trans %}Websites{% notes %}Websites navbar item{% endtrans %}{{ block('currentActiveTab') }}</a>
-			</li>
-		</ul>
-	</div>
+		</li>
+		{% set routeUrl = '/contact' %}
+		<li class="nav-item">
+			<a class="nav-link {{ block('isActive') }}" href="{{ route(routeUrl) }}">{% trans %}Contact{% notes %}Contact navbar item{% endtrans %}{{ block('currentActiveTab') }}</a>
+		</li>
+	</ul>
+</div>
 </nav>

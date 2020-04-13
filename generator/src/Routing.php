@@ -5,6 +5,7 @@ namespace Website;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
 use Website\Controllers\AbstractController;
+use Website\Controllers\ContactController;
 use Website\Controllers\HomeController;
 use Website\Controllers\WebsitesController;
 
@@ -57,6 +58,7 @@ final class Routing
             $routes->addGroup('/{lang}', function (RouteCollector $routes) {
                 $routes->get('[/]', [HomeController::class, 'index']);
                 $routes->get('/index', [HomeController::class, 'index']);
+                $routes->get('/contact', [ContactController::class, 'index']);
                 $routes->get('/websites', [WebsitesController::class, 'index']);
             });
         });
