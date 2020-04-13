@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@internet-quality.org\n"
-"POT-Creation-Date: 2020-04-13 11:14+0200\n"
+"POT-Creation-Date: 2020-04-13 13:50+0200\n"
 "PO-Revision-Date: 2020-03-29 12:10+0200\n"
 "Last-Translator: Internet Quality <translators@internet-quality.org>\n"
 "Language-Team: Internet Quality <translators@internet-quality.org>\n"
@@ -17,14 +17,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. l10n: Toggle navigation menu
-#: templates/common/head.twig:6
-msgid "Toggle navigation"
+#. l10n: Error 405 page
+#: templates/pages/not-allowed.twig:5
+msgid "The method you requested is not allowed"
 msgstr ""
 
-#. l10n: Current active tab
-#: templates/common/head.twig:13
-msgid "(current)"
+#. l10n: Title of the Contact page
+#. l10n: Contact navbar item
+#: templates/pages/contact.twig:3
+#: templates/common/head.twig:37
+msgid "Contact"
+msgstr ""
+
+#. l10n: Header of the Contact page
+#: templates/pages/contact.twig:7
+msgid "Contact us"
+msgstr ""
+
+#: templates/pages/contact.twig:10
+msgid "On keybase"
+msgstr ""
+
+#: templates/pages/contact.twig:11
+msgid "On twitter"
+msgstr ""
+
+#: templates/pages/contact.twig:12
+msgid "On GitHub"
+msgstr ""
+
+#: templates/pages/contact.twig:13
+msgid "On GitHub (org)"
+msgstr ""
+
+#: templates/pages/contact.twig:14
+msgid "By email: contact@internet-quality.org"
+msgstr ""
+
+#: templates/pages/contact.twig:15
+msgid "GPG KEY:"
 msgstr ""
 
 #: templates/common/foot.twig:3
@@ -36,20 +67,32 @@ msgstr ""
 msgid "You affect the world by what you browse. - Tim Berners-Lee"
 msgstr ""
 
+#. l10n: Toggle navigation menu
+#: templates/common/head.twig:21
+msgid "Toggle navigation"
+msgstr ""
+
+#. l10n: Homepage navbar item
 #. l10n: Title of the homepage
-#: templates/pages/index.twig:2
+#: templates/common/head.twig:28
+#: templates/pages/index.twig:3
 msgid "Homepage"
 msgstr ""
 
-#: templates/pages/index.twig:6
+#. l10n: Websites navbar item
+#: templates/common/head.twig:33
+msgid "Websites"
+msgstr ""
+
+#. l10n: Current active tab
+#: templates/common/head.twig:4
+msgid "(current)"
+msgstr ""
+
+#: templates/pages/index.twig:7
 msgid ""
 "Data is a precious thing and will last longer than the systems themselves. - "
 "Tim Berners-Lee"
-msgstr ""
-
-#. l10n: Error 405 page
-#: templates/pages/not-allowed.twig:5
-msgid "The method you requested is not allowed"
 msgstr ""
 
 #. l10n: Error 404 page
