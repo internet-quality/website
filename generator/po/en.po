@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0.0-alpha1\n"
 "Report-Msgid-Bugs-To: translators@internet-quality.org\n"
-"POT-Creation-Date: 2020-04-12 22:00+0200\n"
+"POT-Creation-Date: 2020-04-13 11:14+0200\n"
 "PO-Revision-Date: 2020-03-29 12:10+0200\n"
 "Last-Translator: Internet Quality <translators@internet-quality.org>\n"
 "Language-Team: Internet Quality <translators@internet-quality.org>\n"
@@ -16,6 +16,16 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. l10n: Toggle navigation menu
+#: templates/common/head.twig:6
+msgid "Toggle navigation"
+msgstr ""
+
+#. l10n: Current active tab
+#: templates/common/head.twig:13
+msgid "(current)"
+msgstr ""
 
 #: templates/common/foot.twig:3
 msgid ""
