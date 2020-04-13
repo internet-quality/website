@@ -2,16 +2,52 @@
 {% extends 'basic.twig' %}
 {% block title %}{% trans %}Homepage{% notes %}Title of the homepage{% endtrans %} | {{ parent() }}{% endblock %}
 {% block body %}
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <h1 class="display-4">Internet Quality</h1>
-      <p class="lead">{% trans %}Data is a precious thing and will last longer than the systems themselves. - Tim Berners-Lee{% endtrans %}</p>
-	  {{ schema({
-		"@type": "Quotation",
-		"creator": {
-			"@type": "Person",
-			"name": "Tim Berners-Lee"
-		},
-		"text": "Data is a precious thing and will last longer than the systems themselves."
-	  }) }}
-    </div>
+<main role="main">
+	<section class="jumbotron text-center mb-0">
+		<div class="container">
+			<h1>Internet Quality</h1>
+			<p class="lead text-muted my-5">{% trans %}Data is a precious thing and will last longer than the systems themselves. - Tim Berners-Lee{% endtrans %}</p>
+			<p></p>
+		</div>
+	</section>
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<h2 class="text-center">{% trans %}Our mission{% endtrans %}</h2>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<i class="display-4 icon-fs-12 mdi mdi-shield-lock text-center bg-dark text-white" class="bd-placeholder-img card-img-top" aria-hidden="true"></i>
+						<div class="card-body h-5">
+							<p class="card-text">{% trans %}Keep Internet a secure place for users.{% endtrans %}</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<i class="display-4 icon-fs-12 mdi mdi-cloud-search text-center bg-dark text-white" class="bd-placeholder-img card-img-top" aria-hidden="true"></i>
+						<div class="card-body h-5">
+							<p class="card-text">{% trans %}Search for misconfigurations, data-leaks or potential dangers using common tools.{% endtrans %}</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<i class="display-4 icon-fs-12 mdi mdi-email-multiple text-center bg-dark text-white" class="bd-placeholder-img card-img-top" aria-hidden="true"></i>
+						<div class="card-body h-5">
+							<p class="card-text">{% trans %}Contact organizations or individuals to fix issues we found.{% endtrans %}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{{ schema({
+"@type": "Quotation",
+"creator": {
+	"@type": "Person",
+	"name": "Tim Berners-Lee"
+},
+"text": "Data is a precious thing and will last longer than the systems themselves."
+}) }}
 {% endblock %}
