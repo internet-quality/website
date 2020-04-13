@@ -1,0 +1,16 @@
+body {
+	min-height: 100vh;
+	position: relative;
+	margin: 0;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.icon-fs-12 {
+	font-size: 12rem;
+}
+.h-5 {
+	height: 5rem;
+}
