@@ -9,12 +9,12 @@
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" href="{{ route('/') }}">Homepage
+				<a class="nav-link" href="{{ route('/') }}">{% trans %}Homepage{% notes %}Homepage navbar item{% endtrans %}
 					<span class="sr-only">{% trans %}(current){% notes %}Current active tab{% endtrans %}</span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="{{ route('/websites') }}">Websites</a>
+				<a class="nav-link" href="{{ route('/websites') }}">{% trans %}Websites{% notes %}Websites navbar item{% endtrans %}</a>
 			</li>
 		</ul>
 	</div>
