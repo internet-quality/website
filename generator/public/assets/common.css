@@ -14,3 +14,10 @@ footer {
 .h-5 {
 	height: 5rem;
 }
+
+.footer-links > ul {
+	flex-direction: row;
+}
+.footer-links > ul > li {
+	list-style-type: none;
+}

@@ -1,8 +1,8 @@
-<footer class="footer">
-	<div class="container text-center">
-        {% trans %}The web does not just connect machines, it connects people. - Tim Berners-Lee{% endtrans %}
-        <br>
-        {% trans %}You affect the world by what you browse. - Tim Berners-Lee{% endtrans %}
+<footer class="footer bg-dark">
+	<div class="container my-3 text-left footer-links">
+		<ul>
+			<li><a class="text-white" href="{{ route('/legal') }}">Legal</a></li>
+		</ul>
 	</div>
 </footer>
 {{ schema({

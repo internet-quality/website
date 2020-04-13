@@ -1,0 +1,19 @@
+{% set definedCurrentRoute = '/legal' %}
+{% extends 'basic.twig' %}
+{% block title %}{% trans %}Legal{% notes %}Title of the Legal page{% endtrans %} | {{ parent() }}{% endblock %}
+{% block body %}
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <h1 class="mt-5">{% trans %}Legal{% notes %}Header of the Legal page{% endtrans %}</h1>
+    <p class="lead">
+		{% trans %}
+		Hosted on GitHub pages, powered by CloudFlare.
+		{% endtrans %}
+		<br>
+		{% trans %}
+		For any changes contact us using any method available on the Contact page.
+		{% endtrans %}
+	</p>
+  </div>
+</main>
+{% endblock %}
